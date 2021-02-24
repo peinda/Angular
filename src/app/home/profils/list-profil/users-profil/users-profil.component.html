@@ -1,0 +1,31 @@
+<div class="nav-item form-inline container justify-content-center">
+  <H3 class="txt">Liste des Utilisateurs de ce profil</H3>
+  <button routerLink="/home/user/add" class="btn mr-2" style="margin-left: 30%"><h4 class="txt"><i class="fa fa-plus-circle" aria-hidden="true"></i>
+    Add</h4></button>
+</div>
+
+<div class="card">
+  <p-table [value]="userProfil">
+    >
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Id</th>
+        <th>Prenom</th>
+        <th>Nom</th>
+        <th>Profil</th>
+        <th>Avatar</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-userPro>
+      <tr>
+        <td>{{userPro.id}}</td>
+        <td>{{userPro.prenom}}</td>
+        <td>{{userPro.nom}}</td>
+        <td>{{userPro.profil.libelle}}</td>
+        <td><img class="img-thumbnail rounded-circle" src="data:image/jpeg;base64,{{userPro.avatar}}"style="width: 85px; height: 50px"></td>
+
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+

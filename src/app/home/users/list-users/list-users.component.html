@@ -1,0 +1,33 @@
+<div class="nav-item form-inline container justify-content-center">
+<H3 class="txt">Liste des Utilisateurs</H3>
+<button routerLink="/home/user/add" class="btn mr-2" style="margin-left: 30%"><h4 class="txt"><i class="fa fa-plus-circle" aria-hidden="true"></i>
+  Add</h4></button>
+</div>
+<div class="card">
+<p-table [value]="dataSource" [paginator]="true" [rows]="4">
+  <ng-template pTemplate="header">
+    <tr>
+      <th>Prenom</th>
+      <th>Nom</th>
+      <th>Profil</th>
+      <th>Avatar</th>
+      <th>actions</th>
+    </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-user >
+    <tr>
+      <td>{{user.prenom}}</td>
+      <td>{{user.nom}}</td>
+      <td>{{user.profil.libelle}}</td>
+      <td><img class="img-thumbnail rounded-circle" src="data:image/jpeg;base64,{{user.avatar}}"style="width: 85px; height: 50px"></td>
+      <td>
+       <div class="row">
+         <button type="button" class="btn btn-outline-success" routerLink="/home/user/detail/{{user.id}}">Detail</button>
+        <button type="button" class="btn btn-outline-danger" (click)="deleteUser(user.id)">delete</button>
+        <button type="button" class="btn btn-outline-warning" routerLink="/home/user/edit/{{user.id}}">edit</button></div>
+      </td>
+    </tr>
+  </ng-template>
+</p-table>
+</div>
+

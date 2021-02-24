@@ -1,0 +1,28 @@
+<!--
+{{grpcomForm.value|json}}
+-->
+<div class="p-col-12 nav-item form-inline">
+  <h3> Ajout groupes compétences </h3>
+  <button routerLink="/home/grpcompetence/add" class="btn mr-2" style="margin-left: 40%"><h4 class="txt"><i class="fa fa-plus-circle" aria-hidden="true"></i>
+    Add</h4></button>
+</div>
+<div class="container cadrage ">
+  <form class="mt-4 w-50" >
+    <label  class="textelabel" >
+      <b class="mr-2">Libelle </b></label><br>
+    <input placeholder="libelle" class="form-control" type="text"formControlName="libelle">
+    <div class="form-group"><br>
+      <label for="exampleTextarea"><b>Description</b></label>
+      <textarea class="form-control" id="exampleTextarea" rows="3" formControlName="description"></textarea><br>
+    </div>
+    <div class="p-col12 form-inline">
+      <label class="textelabelCompetence"><b class="mr-2">Competence</b></label><br>
+      <!--
+            <small *ngIf="!grpcomForm.get('competences').valid">Les Competences sont obligatoires</small>
+      -->
+      <button routerLink="/home/grpcompetence/add" class="btn" ><h4 class="txt"><i class="fa fa-plus-circle" aria-hidden="true"></i>
+      </h4></button>
+    </div>
+    <button type="submit" class="btn btn-outline-primary mt-4 mb-4" >SOUMETTRE</button>
+  </form>
+</div>

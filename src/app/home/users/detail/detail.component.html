@@ -1,0 +1,40 @@
+<div class="nav-item form-inline container justify-content-center">
+  <H3 class="txt">Detail de l'utilisateur</H3>
+</div>
+<div class="card">
+  <p-table>
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Prenom</th>
+        <th>Nom</th>
+        <th>Profil</th>
+        <th>Avatar</th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" >
+      <tr>
+        <td>{{detailUser.prenom}}</td>
+        <td>{{detailUser.nom}}</td>
+        <td>{{detailUser.profil.libelle}}</td>
+        <td><img class="img-thumbnail rounded-circle" src="data:image/jpeg;base64,{{detailUser.avatar}}" style="width: 85px; height: 50px"></td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>
+<p-paginator [rows]="5" [totalRecords]="120" ></p-paginator>
+
+
+<table>
+  <tr>
+    <th>Prenom</th>
+    <th>Nom</th>
+    <th>Profil</th>
+    <th>Avatar</th>
+  </tr>
+  <tr>
+    <td>{{detailUser.prenom}}</td>
+    <td>{{detailUser.nom}}</td>
+    <td>{{detailUser.profil.libelle}}</td>
+    <td><img class="img-thumbnail rounded-circle" src="data:image/jpeg;base64,{{detailUser.avatar}}" style="width: 85px; height: 50px"></td>
+  </tr>
+</table>

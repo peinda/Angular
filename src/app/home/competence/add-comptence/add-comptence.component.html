@@ -1,0 +1,61 @@
+<form [formGroup]="comForm">
+  <div class="form-row row ">
+    <div class="col-md-12">
+  <div class="col-auto my-1 form-inline">
+  <label style="font-family:Arial">Groupe de Competences</label>
+    <select formControlName="groupeCompetence" class="custom-select my-1 mr-sm-4 selected" id="inlineFormCustomSelectPref">
+      <option *ngFor="let p of dataGrpComp" value="{{p.id}}">{{p.libelle}}</option>
+    </select>
+  </div>
+  </div>
+  </div>
+  <div class="form-group col-md-6">
+    <label class="mt-4 ml-4 ">libelle</label>
+    <input type="text" class="form-control" id="libelle" placeholder="libelle" formControlName="libelle" >
+    </div>
+  <div class="form-group col-md-6">
+    <label class="mt-4 ml-4 ">Descriptif</label>
+    <textarea type="text" class="form-control" id="desc" placeholder="description" formControlName="descriptif"></textarea>
+    </div>
+    <div class="form-row row">
+    <div class="form-group col">
+      <div formArrayName="niveaux">
+        <div class="p-d-flex p-jc-between p-col-12">
+          <div class="p-field p-col-4">
+            <p-accordion>
+              <p-accordionTab [selected]="true" header="Niveau 1">
+                <div [formGroupName]="0">
+                  <textarea type="text" formControlName="groupeAction" placeholder="groupeActions" pInputText></textarea>
+                    <textarea type="text" formControlName="critereEvaluation" placeholder="criteresEvaluation" pInputText></textarea>
+                </div>
+              </p-accordionTab>
+            </p-accordion>
+          </div>
+          <div class="p-field p-col-4">
+            <p-accordion>
+              <p-accordionTab [selected]="true" header="Niveau 2">
+                <div [formGroupName]="1">
+                  <textarea type="text" formControlName="groupeAction" placeholder="groupeActions" pInputText></textarea>
+                  <textarea type="text" formControlName="critereEvaluation" placeholder="criteresEvaluation" pInputText></textarea>
+                </div>
+              </p-accordionTab>
+            </p-accordion>
+          </div>
+          <div class="p-field p-col-4">
+            <p-accordion>
+              <p-accordionTab [selected]="true" header="Niveau 3">
+                <div [formGroupName]="2">
+                  <textarea type="text" formControlName="groupeAction" placeholder="groupeActions" pInputText></textarea>
+                  <textarea type="text" formControlName="critereEvaluation" placeholder="criteresEvaluation" pInputText></textarea>
+                </div>
+              </p-accordionTab>
+            </p-accordion>
+          </div>
+        </div>
+      </div></div>
+  <div class="p-col-12 p-d-flex p-field p-jc-center">
+  <button type="submit" class="btn border-primary" (click)="onSubmit()">SOUMETTRE</button>
+  </div></div>
+</form>
+
+

@@ -1,0 +1,36 @@
+
+<div class="p-col-12 nav-item form-inline">
+  <h3> Liste des groupes compétences </h3>
+  <button routerLink="/home/grpcompetence/add" class="btn mr-2" style="margin-left: 40%"><h4 class="txt"><i class="fa fa-plus-circle" aria-hidden="true"></i>
+    Add</h4></button>
+</div>
+<div class="card">
+<div class="justify-content-center">
+  <p-scrollPanel class=" justify-content-center">
+<div  class="p-skeleton p-shadow-5 p-mr-3 p-mb-5 p-mt-3 " style="width: 30%; margin-left: 20px; float: left" *ngFor="let g of dataGrpComp">
+  <div><button class="btn-primary mr-2" style="margin-left: 70%"><i class="pi pi-pencil p-mr-2"></i></button>
+    <button class="btn-primary mr-2"><i class="pi pi-trash"></i></button>
+  </div>
+ <div class="p-pt-2" style="color: #033c73"><i class="p-text-sm-justify mr-4">libelle</i>
+</div>
+<div class="p-col-4 " style="float: left; width: 80%">{{g.libelle}}</div>
+<p-divider align="center" type="dashed">
+  <div class="p-pt-2" style="color: #033c73"><i class="p-text-sm-justify mr-4">Description</i></div>
+  <p class="p-pl-1">{{g.description}}</p>
+</p-divider>
+<p-accordion>
+  <p-accordionTab header="Competences">
+    <div *ngFor="let c of g.competences">
+      {{c.libelle}}
+    </div>
+  </p-accordionTab>
+  <p-accordionTab header="Tags">
+    <div>
+     Tags
+    </div>
+  </p-accordionTab>
+</p-accordion>
+</div>
+  </p-scrollPanel>
+</div>
+</div>

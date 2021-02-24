@@ -1,0 +1,41 @@
+
+<div class="container">
+
+<div class="nav-item form-inline container justify-content-center">
+  <H3 class="txt">Liste des Profils</H3>
+  <button class="btn mr-2" style="margin-left: 30%"><h4 class="txt">
+    <a href="#demo" class="btn btn-info" data-toggle="collapse"><i class="fa fa-plus-circle" aria-hidden="true"></i>Add</a>
+  </h4></button></div>
+
+  <div class="card">
+    <p-table [value]="dataProfil">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Libelle</th>
+          <th>Actions</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-profil>
+        <tr>
+          <td>{{profil.libelle}}</td>
+          <td>
+            <button routerLink="/home/userProfil/list/{{profil.id}}" type="button" class="btn btn-outline-danger mr-2">Liste</button>
+            <button type="button" class="btn btn-outline-danger" (click)="deleteProfil(profil.id)">Delete</button>
+          </td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+  <div id="demo" class="collapse justify-content-center mt-3">
+    <div class="col-md-6">
+      <div class="row col-md-12 ">
+        <label>Libelle</label>
+        <input type="text" class="form-control" id="libelle" placeholder="libelle">
+      </div>
+    </div>
+     </div>
+</div>
+
+
+
+

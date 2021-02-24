@@ -1,0 +1,76 @@
+
+<div class="p-col-12 nav-item form-inline">
+  <h3> Liste des compétences </h3>
+  <button routerLink="/home/competence/add" class="btn mr-2" style="margin-left: 40%"><h4 class="txt"><i class="fa fa-plus-circle" aria-hidden="true"></i>
+    Add</h4></button>
+  <form class="form-inline my-2 my-lg-0">
+    <label class="mr-sm-2" for="inlineFormCustomSelect">Filtrer par Groupe Competence</label>
+    <select  #input  (change)="recupere(input.value)" class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+      <option  value="">All...</option>
+      <option *ngFor="let p of dataGrpComp" value="{{p.libelle}}">{{p.libelle}}</option>
+    </select>
+  </form>
+</div>
+<div class="card">
+  <p-scrollPanel class=" justify-content-center">
+<div class="p-skeleton p-shadow-5 p-mr-3 p-mb-5 p-mt-3 " style="width: 30%; margin-left: 20px; float: left" *ngFor="let c of dataComp | grpComp: 'groupeCompetence':search">
+ <div><button class="btn-primary mr-2" style="margin-left: 70%"><i class="pi pi-pencil p-mr-2"></i></button>
+   <button class="btn-primary mr-2"><i class="pi pi-trash"></i></button>
+ </div>
+  <div class="p-pt-2" style="color: #033c73"><i class="p-text-sm-justify mr-4">libelle</i>
+</div>
+  <div class="p-col-4 " style="float: left; width: 80%">{{c.libelle}}</div>
+    <div class="p-pt-2" style="color: #033c73"><i class="p-text-sm-justify mr-4">Descriptif</i></div>
+  <p class="p-pl-1">{{c.descriptif}}</p>
+  <p-accordion [multiple]="true">
+    <p-accordionTab header="Competence">
+      <p-divider align="center" type="dashed">
+        <i class="p-text-secondary">Libelle</i>
+      </p-divider>
+      <div>
+        {{c.niveaux[0].critereEvaluation}}
+      </div>
+      <p-divider align="center" type="dashed">
+        <i class="p-text-secondary">Groupe d'action</i>
+      </p-divider>
+      <div>
+        {{c.niveaux[0].groupeAction}}
+      </div>
+    </p-accordionTab>
+    <p-accordionTab header="Niveau 2">
+      <p-divider align="center" type="dashed">
+        <i class="p-text-secondary">Critère d'evaluation</i>
+      </p-divider>
+      <div>
+        {{c.niveaux[1].critereEvaluation}}
+      </div>
+      <p-divider align="center" type="dashed">
+        <i class="p-text-secondary">Groupe d'action</i>
+      </p-divider>
+      <div>
+        {{c.niveaux[1].groupeAction}}
+      </div>
+    </p-accordionTab>
+    <p-accordionTab header="Niveau 3">
+      <p-divider align="center" type="dashed">
+        <i class="p-text-secondary">Critère d'evaluation</i>
+      </p-divider>
+      <div>
+        {{c.niveaux[2].critereEvaluation}}
+      </div>
+      <p-divider align="center" type="dashed">
+        <i class="p-text-secondary">Groupe d'action</i>
+      </p-divider>
+      <div>
+        {{c.niveaux[2].groupeAction}}
+      </div>
+    </p-accordionTab>
+    <p-accordionTab header="Groupes de competences">
+      <div *ngFor="let g of c.competences">
+        {{g.libelle}}
+      </div>
+    </p-accordionTab>
+  </p-accordion>
+</div>
+  </p-scrollPanel>
+</div>
